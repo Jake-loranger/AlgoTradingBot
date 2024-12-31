@@ -10,12 +10,6 @@ from tinyman.v2.client import TinymanV2MainnetClient
 
 TINYMAN_ROUTER = 1002541853
 
-# algod_client = AlgodClient("", 'https://mainnet-api.4160.nodely.dev')
-# MNEMONIC_PHRASE = "carpet youth lend gadget pink absorb daring salad small web velvet skin cake camp bring kite patrol rice circle fitness accuse census mesh above title"
-
-# pk = mnemonic.to_private_key(MNEMONIC_PHRASE) 
-# address = address_from_private_key(pk)
-
 def get_pool_address(algod_client, user_address, asset_1, asset_2):
     """Retrieve the pool address and pool token asset for the given assets."""
     client = TinymanV2MainnetClient(algod_client=algod_client, user_address=user_address)
@@ -72,23 +66,3 @@ def get_swap_txs(algod_client, private_key, user_address, input_amount, asset_in
     
     except Exception as e:
         return 'failed'
-    
-
-
-# def main():
-#     input_amount = 1000000  # Amount of asset_in to swap (e.g., 1 ALGO)
-#     asset_in = 0  # Asset ID for ALGO (or any other asset you want to swap)
-#     asset_out = 2494786278  # Asset ID for the asset you want to receive in exchange for asset_in
-#     params = algod_client.suggested_params()  # Get the current suggested transaction parameters
-    
-#     # Perform the swap and print the result
-#     tx_id = get_swap_txs(address, input_amount, asset_in, asset_out, params)
-#     print(f"Transaction ID: {tx_id}")
-    
-#     if tx_id != 'failed':
-#         print(f"Transaction successful! Transaction ID: {tx_id}")
-#     else:
-#         print("Swap failed.")
-
-# if __name__ == "__main__":
-#     main()
